@@ -1,19 +1,87 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "@layouts/Layout.astro";
 
-import { Github, Gitlab, Linkedin, Instagram } from "lucide-astro";
+import Section from "@components/section.astro";
+import ResearchContainer from "@components/content/research-container.astro";
+import EducationItem from "@components/content/education-item.astro";
+import ProjectItem from "@components/content/project-item.astro";
+import WorkItem from "@components/content/work-item.astro";
+
+import dayjs from "dayjs";
+
+import { Github, Gitlab, Linkedin, Instagram, Frown } from "lucide-astro";
 
 import { Image } from "astro:assets";
-import photoImage from "../assets/photo.jpg";
+import myPhotoImage from "@assets/photo.jpg";
+
+const education = [
+	{
+		school: "Universidade Federal de Minas Gerais",
+		course: "Bacharelado, Ciência da Computação",
+		period: "mai de 2021 - dez de 2025",
+	},
+	{
+		school: "Centro Federal de Educação Tecnológica de Minas Gerais",
+		course: "Formação técnica, Informática",
+		period: "fev de 2017 - dez de 2019",
+	},
+];
+
+const projects = [
+	{
+		title: "Carcara",
+		description:
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis erat felis. In non condimentum sapien, non scelerisque elit. Phasellus accumsan commodo odio, ac volutpat ex vestibulum efficitur.",
+	},
+	{
+		title: "Carcara",
+		description:
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis erat felis. In non condimentum sapien, non scelerisque elit. Phasellus accumsan commodo odio, ac volutpat ex vestibulum efficitur.",
+	},
+	{
+		title: "Carcara",
+		description:
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis erat felis. In non condimentum sapien, non scelerisque elit. Phasellus accumsan commodo odio, ac volutpat ex vestibulum efficitur.",
+	},
+	{
+		title: "Carcara",
+		description:
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis erat felis. In non condimentum sapien, non scelerisque elit. Phasellus accumsan commodo odio, ac volutpat ex vestibulum efficitur.",
+	},
+];
+
+const work = [
+	{
+		position: "Undergraduate research student",
+		place: "Departamento de Ciência da Computação - UFMG",
+		period: "ago de 2023 - o momento",
+		description:
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis erat felis. In non condimentum sapien, non scelerisque elit. Phasellus accumsan commodo odio, ac volutpat ex vestibulum efficitur.",
+	},
+	{
+		position: "Fullstack developer",
+		place: "Zeester",
+		period: "set de 2021 - mar de 2023",
+		description:
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis erat felis. In non condimentum sapien, non scelerisque elit. Phasellus accumsan commodo odio, ac volutpat ex vestibulum efficitur.",
+	},
+	{
+		position: "Mobile developer",
+		place: "Geobyte Consultoria e Tecnologia GIS",
+		period: "fev de 2021 - jul de 2021",
+		description:
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis erat felis. In non condimentum sapien, non scelerisque elit. Phasellus accumsan commodo odio, ac volutpat ex vestibulum efficitur.",
+	},
+];
 ---
 
 <Layout page="Home">
 	<main class="w-full flex flex-col gap-16">
 		<header class="flex flex-row gap-12 items-center">
-			<Image src={photoImage} alt="Vinicius G." class="rounded-2xl" />
+			<Image src={myPhotoImage} alt="Vinicius G." class="w-60 h-60 rounded-2xl"  />
 			<div class="flex flex-col gap-6">
-				<h1 class="text-white font-bold text-4xl">Hi, I’m Vinicius! 👋</h1>
-				<p class="text-text text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis erat felis. In non condimentum sapien, non scelerisque elit. Phasellus accumsan commodo odio, ac volutpat ex vestibulum efficitur. Duis libero justo, viverra non sagittis in, varius in ligula. Donec luctus gravida diam, at tempus erat elementum ut.</p>
+				<h1 class="text-white font-bold text-3xl">Hi, I’m Vinicius! 👋</h1>
+				<p class="text-text text-md">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis erat felis. In non condimentum sapien, non scelerisque elit. Phasellus accumsan commodo odio, ac volutpat ex vestibulum efficitur. Duis libero justo, viverra non sagittis in, varius in ligula. Donec luctus gravida diam, at tempus erat elementum ut.</p>
 				<div class="flex flex-row justify-between">
 					<div class="flex flex-row gap-4">
 						<a target="_blank" rel="noopener noreferrer" href="https://github.com/vinisilvag">
@@ -38,24 +106,45 @@ import photoImage from "../assets/photo.jpg";
 			</div>
 		</header>
 
-		<section>
-			<h2 class="text-white font-bold text-2xl mb-4">Education</h2>
-		</section>
+		<Section title="Education">
+			<div class="grid grid-cols-2 gap-4">
+				{education.map(item => <EducationItem {...item} />)}
+			</div>
+		</Section>
 		
-		<section>
-			<h2 class="text-white font-bold text-2xl mb-4">Research</h2>
-		</section>
+		<Section title="Research">
+			<div class="grid grid-cols-2 gap-4">
+				<ResearchContainer title="Publications">
+					<span
+						class="flex flex-row gap-2 text-text opacity-50"
+					>
+						Nothing to see here yet <Frown />
+					</span>
+				</ResearchContainer>
+				<ResearchContainer title="Presentations/talks">
+					<span
+						class="flex flex-row gap-2 text-text opacity-50"
+					>
+						Nothing to see here yet <Frown />
+					</span>
+				</ResearchContainer>
+			</div>
+		</Section>
 		
-		<section>
-			<h2 class="text-white font-bold text-2xl mb-4">Projects and contributions</h2>
-		</section>
+		<Section title="Projects and contributions">
+			<div class="grid grid-cols-2 gap-4">
+				{projects.map(item => <ProjectItem {...item} />)}
+			</div>
+		</Section>
 		
-		<section>
-			<h2 class="text-white font-bold text-2xl mb-4">Work experience</h2>
-		</section>
+		<Section title="Work experience">
+			<div class="grid grid-cols-2 gap-4">
+				{work.map(item => <WorkItem {...item} />)}
+			</div>
+		</Section>
 
 		<footer class="w-full text-center">
-			<span class="text-text">Copyright © 2024. Made with 🤍 by Vinicius Gomes.</span>
+			<span class="text-text">Copyright © {dayjs().year()}. Made with 🤍 by Vinicius Gomes.</span>
 		</footer>
 	</main>
 </Layout>
