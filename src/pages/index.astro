@@ -1,150 +1,63 @@
 ---
-import Layout from "@layouts/Layout.astro";
+import Layout from "@layouts/layout.astro";
 
+import Header from "@components/header.astro";
 import Section from "@components/section.astro";
+
 import ResearchContainer from "@components/content/research-container.astro";
+
 import EducationItem from "@components/content/education-item.astro";
 import ProjectItem from "@components/content/project-item.astro";
 import WorkItem from "@components/content/work-item.astro";
 
+import contentJson from "@public/content.json";
+
 import dayjs from "dayjs";
-
-import { Github, Gitlab, Linkedin, Instagram, Frown } from "lucide-astro";
-
-import { Image } from "astro:assets";
-import myPhotoImage from "@assets/photo.jpg";
-
-const education = [
-	{
-		school: "Universidade Federal de Minas Gerais",
-		course: "Bacharelado, Ciência da Computação",
-		period: "mai de 2021 - dez de 2025",
-	},
-	{
-		school: "Centro Federal de Educação Tecnológica de Minas Gerais",
-		course: "Formação técnica, Informática",
-		period: "fev de 2017 - dez de 2019",
-	},
-];
-
-const projects = [
-	{
-		title: "Carcara",
-		description:
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis erat felis. In non condimentum sapien, non scelerisque elit. Phasellus accumsan commodo odio, ac volutpat ex vestibulum efficitur.",
-	},
-	{
-		title: "Carcara",
-		description:
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis erat felis. In non condimentum sapien, non scelerisque elit. Phasellus accumsan commodo odio, ac volutpat ex vestibulum efficitur.",
-	},
-	{
-		title: "Carcara",
-		description:
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis erat felis. In non condimentum sapien, non scelerisque elit. Phasellus accumsan commodo odio, ac volutpat ex vestibulum efficitur.",
-	},
-	{
-		title: "Carcara",
-		description:
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis erat felis. In non condimentum sapien, non scelerisque elit. Phasellus accumsan commodo odio, ac volutpat ex vestibulum efficitur.",
-	},
-];
-
-const work = [
-	{
-		position: "Undergraduate research student",
-		place: "Departamento de Ciência da Computação - UFMG",
-		period: "ago de 2023 - o momento",
-		description:
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis erat felis. In non condimentum sapien, non scelerisque elit. Phasellus accumsan commodo odio, ac volutpat ex vestibulum efficitur.",
-	},
-	{
-		position: "Fullstack developer",
-		place: "Zeester",
-		period: "set de 2021 - mar de 2023",
-		description:
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis erat felis. In non condimentum sapien, non scelerisque elit. Phasellus accumsan commodo odio, ac volutpat ex vestibulum efficitur.",
-	},
-	{
-		position: "Mobile developer",
-		place: "Geobyte Consultoria e Tecnologia GIS",
-		period: "fev de 2021 - jul de 2021",
-		description:
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis erat felis. In non condimentum sapien, non scelerisque elit. Phasellus accumsan commodo odio, ac volutpat ex vestibulum efficitur.",
-	},
-];
 ---
 
 <Layout page="Home">
 	<main class="w-full flex flex-col gap-16">
-		<header class="flex flex-row gap-12 items-center">
-			<Image src={myPhotoImage} alt="Vinicius G." class="w-60 h-60 rounded-2xl"  />
-			<div class="flex flex-col gap-6">
-				<h1 class="text-white font-bold text-3xl">Hi, I’m Vinicius! 👋</h1>
-				<p class="text-text text-md">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis erat felis. In non condimentum sapien, non scelerisque elit. Phasellus accumsan commodo odio, ac volutpat ex vestibulum efficitur. Duis libero justo, viverra non sagittis in, varius in ligula. Donec luctus gravida diam, at tempus erat elementum ut.</p>
-				<div class="flex flex-row justify-between">
-					<div class="flex flex-row gap-4">
-						<a target="_blank" rel="noopener noreferrer" href="https://github.com/vinisilvag">
-							<Github class="w-6 h-6 text-text hover:text-white"/>
-						</a>
-						<a target="_blank" rel="noopener noreferrer" href="https://gitlab.com/vinisilvag">
-							<Gitlab class="w-6 h-6 text-text hover:text-white"/>
-						</a>
-						<a target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/vinisilvag">
-							<Linkedin class="w-6 h-6 text-text hover:text-white"/>
-						</a>
-						<a target="_blank" rel="noopener noreferrer" href="https://instagram.com/vinisilvag">
-							<Instagram class="w-6 h-6 text-text hover:text-white"/>
-						</a>
-					</div>
-
-					<div class="flex flex-row gap-4">
-						<a href="/blog/" class="text-text hover:text-white uppercase">Blog</a>
-						<a href="/blog/" class="text-text hover:text-white uppercase">CV</a>
-					</div>
-				</div>
-			</div>
-		</header>
+		<Header />
 
 		<Section title="Education">
-			<div class="grid grid-cols-2 gap-4">
-				{education.map(item => <EducationItem {...item} />)}
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+				{contentJson.education.map(item => <EducationItem {...item} />)}
 			</div>
 		</Section>
 		
 		<Section title="Research">
-			<div class="grid grid-cols-2 gap-4">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 				<ResearchContainer title="Publications">
 					<span
 						class="flex flex-row gap-2 text-text opacity-50"
 					>
-						Nothing to see here yet <Frown />
+						Nothing to see here yet :(
 					</span>
 				</ResearchContainer>
 				<ResearchContainer title="Presentations/talks">
 					<span
 						class="flex flex-row gap-2 text-text opacity-50"
 					>
-						Nothing to see here yet <Frown />
+						Nothing to see here yet :(
 					</span>
 				</ResearchContainer>
 			</div>
 		</Section>
 		
 		<Section title="Projects and contributions">
-			<div class="grid grid-cols-2 gap-4">
-				{projects.map(item => <ProjectItem {...item} />)}
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+				{contentJson.projects.map(item => <ProjectItem {...item} />)}
 			</div>
 		</Section>
 		
 		<Section title="Work experience">
-			<div class="grid grid-cols-2 gap-4">
-				{work.map(item => <WorkItem {...item} />)}
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+				{contentJson.work.map(item => <WorkItem {...item} />)}
 			</div>
 		</Section>
 
 		<footer class="w-full text-center">
-			<span class="text-text">Copyright © {dayjs().year()}. Made with 🤍 by Vinicius Gomes.</span>
+			<span class="text-text">Copyright © {dayjs().year()}. Made with 🤡🔪 by Vinicius Gomes.</span>
 		</footer>
 	</main>
 </Layout>

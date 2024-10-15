@@ -1,0 +1,62 @@
+{
+	"education": [
+		{
+			"school": "Universidade Federal de Minas Gerais",
+			"course": "Bacharelado, Ciência da Computação",
+			"period": "mai de 2021 - dez de 2025"
+		},
+		{
+			"school": "Centro Federal de Educação Tecnológica de Minas Gerais",
+			"course": "Formação técnica, Informática",
+			"period": "fev de 2017 - dez de 2019"
+		}
+	],
+	"research": {
+		"publications": [],
+		"talks": []
+	},
+	"projects": [
+		{
+			"title": "Carcara",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis erat felis. In non condimentum sapien, non scelerisque elit. Phasellus accumsan commodo odio, ac volutpat ex vestibulum efficitur."
+		},
+		{
+			"title": "Carcara",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis erat felis. In non condimentum sapien, non scelerisque elit. Phasellus accumsan commodo odio, ac volutpat ex vestibulum efficitur."
+		},
+		{
+			"title": "Carcara",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis erat felis. In non condimentum sapien, non scelerisque elit. Phasellus accumsan commodo odio, ac volutpat ex vestibulum efficitur."
+		},
+		{
+			"title": "Carcara",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis erat felis. In non condimentum sapien, non scelerisque elit. Phasellus accumsan commodo odio, ac volutpat ex vestibulum efficitur."
+		}
+	],
+	"work": [
+		{
+			"position": "Undergraduate research student",
+			"place": "Departamento de Ciência da Computação - UFMG",
+			"period": "ago de 2023 - o momento",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis erat felis. In non condimentum sapien, non scelerisque elit. Phasellus accumsan commodo odio, ac volutpat ex vestibulum efficitur."
+		},
+		{
+			"position": "Fullstack developer",
+			"place": "Zeester",
+			"period": "set de 2021 - mar de 2023",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis erat felis. In non condimentum sapien, non scelerisque elit. Phasellus accumsan commodo odio, ac volutpat ex vestibulum efficitur."
+		},
+		{
+			"position": "Mobile developer",
+			"place": "Geobyte Consultoria e Tecnologia GIS",
+			"period": "fev de 2021 - jul de 2021",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis erat felis. In non condimentum sapien, non scelerisque elit. Phasellus accumsan commodo odio, ac volutpat ex vestibulum efficitur."
+		},
+		{
+			"position": "Fullstack developer",
+			"place": "Comp Júnior",
+			"period": "abr de 2020 - out de 2021",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis erat felis. In non condimentum sapien, non scelerisque elit. Phasellus accumsan commodo odio, ac volutpat ex vestibulum efficitur."
+		}
+	]
+}
