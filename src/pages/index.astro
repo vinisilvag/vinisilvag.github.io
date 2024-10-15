@@ -10,7 +10,7 @@ import EducationItem from "@components/content/education-item.astro";
 import ProjectItem from "@components/content/project-item.astro";
 import WorkItem from "@components/content/work-item.astro";
 
-import contentJson from "@public/content.json";
+import siteContentJson from "@public/site-content.json";
 
 import dayjs from "dayjs";
 ---
@@ -21,7 +21,7 @@ import dayjs from "dayjs";
 
 		<Section title="Education">
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-				{contentJson.education.map(item => <EducationItem {...item} />)}
+				{siteContentJson.education.map(item => <EducationItem {...item} />)}
 			</div>
 		</Section>
 		
@@ -46,13 +46,13 @@ import dayjs from "dayjs";
 		
 		<Section title="Projects and contributions">
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-				{contentJson.projects.map(item => <ProjectItem {...item} />)}
+				{siteContentJson.projects.map(item => <ProjectItem {...item} />)}
 			</div>
 		</Section>
 		
 		<Section title="Work experience">
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-				{contentJson.work.map(item => <WorkItem {...item} />)}
+				{siteContentJson.work.map(item => <WorkItem {...item} />)}
 			</div>
 		</Section>
 
