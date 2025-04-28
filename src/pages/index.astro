@@ -10,9 +10,9 @@ import EducationItem from "@components/content/education-item.astro";
 import ProjectItem from "@components/content/project-item.astro";
 import WorkItem from "@components/content/work-item.astro";
 
-import siteContentJson from "@public/site-content.json";
+import Footer from "@components/footer.astro";
 
-import dayjs from "dayjs";
+import siteContentJson from "@public/site-content.json";
 ---
 
 <Layout page="Home">
@@ -56,9 +56,7 @@ import dayjs from "dayjs";
 			</div>
 		</Section>
 
-		<footer class="w-full text-center">
-			<span class="text-text">Copyright © {dayjs().year()}. Made with 🤡🔪 by Vinicius Gomes.</span>
-		</footer>
+		<Footer client:load />
 	</main>
 </Layout>
 
