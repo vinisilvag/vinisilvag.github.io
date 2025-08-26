@@ -2,13 +2,13 @@
   "education": [
     {
       "school": "Universidade Federal de Minas Gerais",
-      "course": "Bacharelado, Ciência da Computação",
-      "period": "mai de 2021 - dez de 2025"
+      "course": "Bachelor’s degree in Computer Science",
+      "period": "May 2021 - Aug 2026"
     },
     {
       "school": "Centro Federal de Educação Tecnológica de Minas Gerais",
-      "course": "Formação técnica, Informática",
-      "period": "fev de 2017 - dez de 2019"
+      "course": "Technical Course in Computer Science",
+      "period": "Feb 2017 - Dec 2019"
     }
   ],
   "research": {
@@ -39,27 +39,27 @@
   ],
   "work": [
     {
-      "position": "Undergraduate research student",
+      "position": "Undergraduate Researcher in Formal Methods",
       "place": "Departamento de Ciência da Computação - UFMG",
-      "period": "jul de 2023 - o momento",
+      "period": "Jul 2023 - present",
       "description": "I worked on the integration of the SMT solver cvc5 with the proof checker Carcara, enabling the production and verification of proofs in the Alethe format during the solver's regression tests. I'm currently working on extending Carcara with support for new theories, using techniques from the literature, in order to enable it to verify a broader set of Alethe proofs."
     },
     {
       "position": "Fullstack developer",
       "place": "Zeester",
-      "period": "set de 2021 - mar de 2023",
+      "period": "Sept 2021 - Mar 2023",
       "description": "I contributed to the development and maintenance of a customer management dashboard, working on the frontend with ReactJS and on the backend with Node.js, both in TypeScript, within a microservices architecture integrated with MongoDB. My role included implementing new features, fixing bugs, and ensuring platform stability. I also developed a client onboarding platform with a complete payment flow, integrating secure gateways and database synchronization."
     },
     {
       "position": "Mobile developer",
       "place": "Geobyte Consultoria e Tecnologia GIS",
-      "period": "fev de 2021 - jul de 2021",
+      "period": "Feb 2021 - Jul 2021",
       "description": "I developed and maintained cross-platform applications used for data collection in remote areas. Additionally, I implemented an offline-first strategy in the applications to ensure data persistence in locations without network coverage or internet access."
     },
     {
       "position": "Fullstack developer",
       "place": "Comp Júnior",
-      "period": "abr de 2020 - out de 2021",
+      "period": "Apr 2020 - Oct 2021",
       "description": "I worked as a full-stack developer on several projects during my time at Comp, with a stronger focus on back-end development. Additionally, I assisted the infrastructure team in reviewing and modernizing the deployment strategy used and was one of the organizers and content creators for an internal training program on mobile development using JavaScript, React Native, and Expo."
     }
   ]
