@@ -1,7 +1,15 @@
 ---
-import dayjs from "dayjs";
 ---
 
 <footer class="w-full text-center">
-  <span class="text-text">Copyright © {dayjs().year()}. Made with 🤡🔪 by Vinicius Gomes.</span>
+  <span class="text-text">
+    Copyright © <span id="current-year">{new Date().getFullYear()}</span>. Made with 🤡🔪 by Vinicius Gomes.
+  </span>
 </footer>
+
+<script>
+  const yearElement = document.getElementById("current-year");
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear().toString();
+  }
+</script>

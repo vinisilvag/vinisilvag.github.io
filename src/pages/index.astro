@@ -1,61 +1,58 @@
 ---
-import Layout from "@layouts/layout.astro";
-
-import Header from "@components/header.astro";
-import Section from "@components/section.astro";
-import Footer from "@components/footer.astro";
-
-import ResearchContainer from "@components/content/research-container.astro";
-
 import EducationItem from "@components/content/education-item.astro";
 import ProjectItem from "@components/content/project-item.astro";
+import ResearchContainer from "@components/content/research-container.astro";
 import WorkItem from "@components/content/work-item.astro";
+import Footer from "@components/footer.astro";
+import Header from "@components/header.astro";
+import Section from "@components/section.astro";
+import Layout from "@layouts/layout.astro";
 
 import siteContentJson from "@public/site-content.json";
 ---
 
 <Layout page="Home">
-	<main class="w-full flex flex-col gap-16">
-		<Header />
+  <main class="w-full flex flex-col gap-16">
+    <Header />
 
-		<Section title="Education">
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-				{siteContentJson.education.map(item => <EducationItem {...item} />)}
-			</div>
-		</Section>
-		
-		<Section title="Research">
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-				<ResearchContainer title="Publications">
-					<span
-						class="flex flex-row gap-2 text-text opacity-50"
-					>
-						Nothing to see here yet :(
-					</span>
-				</ResearchContainer>
-				<ResearchContainer title="Presentations/talks">
-					<span
-						class="flex flex-row gap-2 text-text opacity-50"
-					>
-						Nothing to see here yet :(
-					</span>
-				</ResearchContainer>
-			</div>
-		</Section>
-		
-		<Section title="Projects and contributions">
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-				{siteContentJson.projects.map(item => <ProjectItem {...item} />)}
-			</div>
-		</Section>
-		
-		<Section title="Work experience">
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-				{siteContentJson.work.map(item => <WorkItem {...item} />)}
-			</div>
-		</Section>
+    <Section title="Education">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {siteContentJson.education.map(item => <EducationItem {...item} />)}
+      </div>
+    </Section>
+    
+    <Section title="Research">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <ResearchContainer title="Publications">
+          <span
+            class="flex flex-row gap-2 text-text opacity-50"
+          >
+            Nothing to see here yet :(
+          </span>
+        </ResearchContainer>
+        <ResearchContainer title="Presentations/talks">
+          <span
+            class="flex flex-row gap-2 text-text opacity-50"
+          >
+            Nothing to see here yet :(
+          </span>
+        </ResearchContainer>
+      </div>
+    </Section>
+    
+    <Section title="Projects and contributions">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {siteContentJson.projects.map(item => <ProjectItem {...item} />)}
+      </div>
+    </Section>
+    
+    <Section title="Work experience">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {siteContentJson.work.map(item => <WorkItem {...item} />)}
+      </div>
+    </Section>
 
-		<Footer />
-	</main>
+    <Footer />
+  </main>
 </Layout>
 

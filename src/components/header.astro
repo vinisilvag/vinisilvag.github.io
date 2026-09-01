@@ -1,40 +1,39 @@
 ---
-import { Github, Gitlab, Link, Linkedin, Instagram } from "lucide-astro";
-
 import { Image } from "astro:assets";
 import avatarImage from "@assets/avatar-2.jpg";
+import { Github, Gitlab, Instagram, Linkedin } from "lucide-astro";
 ---
 
 <header class="flex flex-col md:flex-row gap-12 items-center">
-	<Image src={avatarImage} alt="Vinicius G." class="w-60 h-60 rounded-2xl" loading="eager" />
+  <Image src={avatarImage} alt="Vinicius G." class="w-60 h-60 rounded-2xl" loading="eager" />
 
-	<div class="flex flex-col gap-6">
-		<h1 class="text-white font-bold text-3xl text-center md:text-left">Hi, I’m Vinicius! 👋</h1>
-		<p class="text-text text-md text-center md:text-left">Technical degree in Computer Science from CEFET-MG and currently an undergraduate student in Computer Science at UFMG. I am interested in areas such as Theoretical Computer Science, Formal Methods, and Satisfiability Modulo Theories (SMT). Currently, I work as a researcher student, implementing support for new theories in the SMT proof checker Carcara. Passionate about Linux and a number one fan of Monster by Naoki Urasawa.</p>
+  <div class="flex flex-col gap-6">
+    <h1 class="text-white font-bold text-3xl text-center md:text-left">Hi, I’m Vinicius! 👋</h1>
+    <p class="text-text text-md text-center md:text-left">Technical degree in Computer Science from CEFET-MG and currently an undergraduate student in Computer Science at UFMG. I am interested in areas such as Theoretical Computer Science, Formal Methods, and Satisfiability Modulo Theories (SMT). Currently, I work as a researcher student, implementing support for new theories in the SMT proof checker Carcara. Passionate about Linux and a number one fan of Monster by Naoki Urasawa.</p>
 
-		<div class="flex flex-row justify-between">
-			<div class="flex flex-row gap-4">
-				<a target="_blank" rel="noopener noreferrer" href="https://github.com/vinisilvag" aria-label="GitHub Icon">
-					<Github class="w-6 h-6 text-text hover:text-white"/>
-				</a>
-				<a target="_blank" rel="noopener noreferrer" href="https://gitlab.com/vinisilvag" aria-label="GitHub Icon">
-					<Gitlab class="w-6 h-6 text-text hover:text-white"/>
-				</a>
-				<!-- <a target="_blank" rel="noopener noreferrer" href="http://lattes.cnpq.br/9631087254135747" aria-label="Link Icon">
-					<Link class="w-6 h-6 text-text hover:text-white"/>
-				</a> -->
-				<a target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/vinisilvag" aria-label="Instagram Icon">
-					<Linkedin class="w-6 h-6 text-text hover:text-white"/>
-				</a>
-				<a target="_blank" rel="noopener noreferrer" href="https://instagram.com/vinisilvag" aria-label="LinkedIn Icon">
-					<Instagram class="w-6 h-6 text-text hover:text-white"/>
-				</a>
-			</div>
+    <div class="flex flex-row justify-between">
+      <div class="flex flex-row gap-4">
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/vinisilvag" aria-label="GitHub Icon">
+          <Github class="w-6 h-6 text-text hover:text-white"/>
+        </a>
+        <a target="_blank" rel="noopener noreferrer" href="https://gitlab.com/vinisilvag" aria-label="GitHub Icon">
+          <Gitlab class="w-6 h-6 text-text hover:text-white"/>
+        </a>
+        <!-- <a target="_blank" rel="noopener noreferrer" href="http://lattes.cnpq.br/9631087254135747" aria-label="Link Icon">
+          <Link class="w-6 h-6 text-text hover:text-white"/>
+        </a> -->
+        <a target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/vinisilvag" aria-label="Instagram Icon">
+          <Linkedin class="w-6 h-6 text-text hover:text-white"/>
+        </a>
+        <a target="_blank" rel="noopener noreferrer" href="https://instagram.com/vinisilvag" aria-label="LinkedIn Icon">
+          <Instagram class="w-6 h-6 text-text hover:text-white"/>
+        </a>
+      </div>
 
-			<div class="flex flex-row gap-4">
-				<!-- <a href="/blog" class="text-text hover:text-white uppercase">Blog</a> -->
-				<a target="_blank" rel="noopener noreferrer" href="/cv.pdf" class="text-text hover:text-white uppercase">CV</a>
-			</div>
-		</div>
-	</div>
+      <div class="flex flex-row gap-4">
+        <!-- <a href="/blog" class="text-text hover:text-white uppercase">Blog</a> -->
+        <a target="_blank" rel="noopener noreferrer" href="/cv.pdf" class="text-text hover:text-white uppercase">CV</a>
+      </div>
+    </div>
+  </div>
 </header>
