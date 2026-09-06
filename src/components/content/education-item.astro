@@ -1,15 +1,37 @@
 ---
+interface Thesis {
+  title: string;
+  pdf?: string | null;
+  label?: string | null;
+}
+
 interface Props {
   school: string;
   course: string;
   period: string;
+  thesis?: Thesis | null;
 }
 
-const { school, course, period } = Astro.props;
+const { school, course, period, thesis } = Astro.props;
 ---
 
 <div class="flex flex-col w-full">
-  <h3 class="text-white text-lg font-semibold">{school}</h3>
-  <span class="text-white text-sm">{course}</span>
-  <span class="text-text text-sm">{period}</span>
+  <h3 class="text-heading text-lg/snug font-semibold">{school}</h3>
+  <span class="text-text text-sm">{course}</span>
+  <span class="text-muted text-sm font-mono">{period}</span>
+  {thesis && (
+    <div class="text-sm mt-1 flex flex-col text-muted">
+      <span>{thesis.label || "Thesis"}: <span class="text-text">{thesis.title}</span></span>
+      {thesis.pdf && (
+        <a
+          href={thesis.pdf}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-link hover:underline font-mono font-medium w-fit"
+        >
+          [pdf]
+        </a>
+      )}
+    </div>
+  )}
 </div>

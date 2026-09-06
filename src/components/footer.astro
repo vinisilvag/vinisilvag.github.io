@@ -1,9 +1,14 @@
 ---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
 ---
 
-<footer class="w-full text-center">
-  <span class="text-text">
-    Copyright © <span id="current-year">{new Date().getFullYear()}</span>. Made with 🤡🔪 by Vinicius Gomes.
+<footer class:list={["w-full text-center mt-auto", className]}>
+  <span class="text-muted">
+    Copyright © <span id="current-year">{new Date().getFullYear()}</span>. Last update at Sep 2026.
   </span>
 </footer>
 

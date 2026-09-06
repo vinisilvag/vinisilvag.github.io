@@ -1,8 +1,132 @@
 @import "tailwindcss";
 
+@layer base {
+  :root {
+    /* Default: Dracula (from Shiki via multiterm-astro) */
+    --theme-background: #282a36;
+    --theme-foreground: #f8f8f2;
+    --theme-surface: #21222c;
+    --theme-accent: #bd93f9;
+    --theme-heading: #bd93f9;
+    --theme-heading1: #bd93f9;
+    --theme-heading2: #bd93f9;
+    --theme-heading3: #bd93f9;
+    --theme-heading4: #bd93f9;
+    --theme-heading5: #bd93f9;
+    --theme-heading6: #bd93f9;
+    --theme-text: #f8f8f2;
+    --theme-muted: #6272a4;
+    --theme-primary: #bd93f9;
+    --theme-secondary: #6272a4;
+    --theme-link: #ff79c6;
+    --theme-list: #8be9fd;
+    --theme-separator: #6272a4;
+    --theme-selection: #44475a;
+    --theme-border: #191a21;
+
+    /* Palette */
+    --theme-blue: #bd93f9;
+    --theme-cyan: #8be9fd;
+    --theme-green: #50fa7b;
+    --theme-yellow: #f1fa8c;
+    --theme-red: #ff5555;
+    --theme-magenta: #ff79c6;
+    --theme-orange: #ffb86c;
+  }
+
+  .light,
+  [data-theme="light"] {
+    /* Light Theme (Dracula Alucard) */
+    --theme-background: #fffbeb;
+    --theme-foreground: #1f1f1f;
+    --theme-surface: #f3eee0;
+    --theme-accent: #644ac9;
+    --theme-heading: #644ac9;
+    --theme-heading1: #644ac9;
+    --theme-heading2: #644ac9;
+    --theme-heading3: #644ac9;
+    --theme-heading4: #644ac9;
+    --theme-heading5: #644ac9;
+    --theme-heading6: #644ac9;
+    --theme-text: #1f1f1f;
+    --theme-muted: #6c664b;
+    --theme-primary: #644ac9;
+    --theme-secondary: #036a96;
+    --theme-link: #a3144d;
+    --theme-list: #036a96;
+    --theme-separator: #ded8c7;
+    --theme-selection: #cfcfde;
+    --theme-border: #ded8c7;
+
+    --theme-blue: #644ac9;
+    --theme-cyan: #036a96;
+    --theme-green: #14710a;
+    --theme-yellow: #846e15;
+    --theme-red: #cb3a2a;
+    --theme-magenta: #a3144d;
+    --theme-orange: #a34d14;
+  }
+}
+
 @theme {
-  --font-sans: "Open Sans", sans-serif;
-  --color-background: #0e0f11;
-  --color-white: #ffffff;
-  --color-text: #cdcdcd;
+  --font-sans:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono:
+    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    monospace;
+
+  /* Dracula (Dark) - Palette */
+  --color-dracula-bg: #282a36;
+  --color-dracula-bg-dark: #21222c;
+  --color-dracula-selection: #44475a;
+  --color-dracula-fg: #f8f8f2;
+  --color-dracula-comment: #6272a4;
+  --color-dracula-cyan: #8be9fd;
+  --color-dracula-green: #50fa7b;
+  --color-dracula-orange: #ffb86c;
+  --color-dracula-pink: #ff79c6;
+  --color-dracula-purple: #bd93f9;
+  --color-dracula-red: #ff5555;
+  --color-dracula-yellow: #f1fa8c;
+
+  /* Dracula Alucard (Light) - Palette */
+  --color-alucard-bg: #fffbeb;
+  --color-alucard-surface: #f3eee0;
+  --color-alucard-fg: #1f1f1f;
+  --color-alucard-comment: #6c664b;
+  --color-alucard-selection: #cfcfde;
+  --color-alucard-border: #ded8c7;
+  --color-alucard-purple: #644ac9;
+  --color-alucard-pink: #a3144d;
+  --color-alucard-cyan: #036a96;
+  --color-alucard-green: #14710a;
+  --color-alucard-yellow: #846e15;
+  --color-alucard-red: #cb3a2a;
+  --color-alucard-orange: #a34d14;
+
+  /* Semantic Theme Tokens */
+  --color-background: var(--theme-background);
+  --color-foreground: var(--theme-foreground);
+  --color-surface: var(--theme-surface);
+  --color-heading: var(--theme-heading);
+  --color-heading1: var(--theme-heading1);
+  --color-heading2: var(--theme-heading2);
+  --color-heading3: var(--theme-heading3);
+  --color-heading4: var(--theme-heading4);
+  --color-heading5: var(--theme-heading5);
+  --color-heading6: var(--theme-heading6);
+  --color-text: var(--theme-text);
+  --color-muted: var(--theme-muted);
+  --color-primary: var(--theme-primary);
+  --color-secondary: var(--theme-secondary);
+  --color-accent: var(--theme-accent);
+  --color-link: var(--theme-link);
+  --color-list: var(--theme-list);
+  --color-separator: var(--theme-separator);
+  --color-border: var(--theme-border);
+}
+
+::selection {
+  background-color: var(--theme-selection);
+  color: var(--theme-text);
 }

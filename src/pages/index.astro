@@ -1,8 +1,10 @@
 ---
 import EducationItem from "@components/content/education-item.astro";
-import ProjectItem from "@components/content/project-item.astro";
+import NewsItem from "@components/content/news-item.astro";
 import ResearchContainer from "@components/content/research-container.astro";
-import WorkItem from "@components/content/work-item.astro";
+import TalkItem from "@components/content/talk-item.astro";
+import TeachingItem from "@components/content/teaching-item.astro";
+import UniversityContainer from "@components/content/university-container.astro";
 import Footer from "@components/footer.astro";
 import Header from "@components/header.astro";
 import Section from "@components/section.astro";
@@ -12,46 +14,53 @@ import siteContentJson from "@public/site-content.json";
 ---
 
 <Layout>
-  <main class="w-full flex flex-col gap-16">
+  <main class="w-full flex-1 flex flex-col gap-16">
     <Header />
 
-    <Section title="Education">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {siteContentJson.education.map(item => <EducationItem {...item} />)}
+    <Section title="News">
+      <div class="flex flex-col gap-2">
+        {siteContentJson.news.map(item => <NewsItem {...item} />)}
       </div>
     </Section>
+    
+    <UniversityContainer>
+      <Section title="Education">
+        <div class="grid grid-cols-1 gap-4">
+          {siteContentJson.education.map(item => <EducationItem {...item} />)}
+        </div>
+      </Section>
+
+      <Section title="Teaching Experience">
+        <div class="grid grid-cols-1 gap-4">
+          {siteContentJson.teaching.map(item => <TeachingItem {...item} />)}
+        </div>
+      </Section>
+    </UniversityContainer>
     
     <Section title="Research">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <ResearchContainer title="Publications">
           <span
-            class="flex flex-row gap-2 text-text opacity-50"
+            class="flex flex-row gap-2 text-muted"
           >
             Nothing to see here yet :(
           </span>
         </ResearchContainer>
         <ResearchContainer title="Presentations/talks">
-          <span
-            class="flex flex-row gap-2 text-text opacity-50"
-          >
-            Nothing to see here yet :(
-          </span>
+          {siteContentJson.research.talks.length > 0 ? (
+            <div class="flex flex-col gap-4">
+              {siteContentJson.research.talks.map(item => <TalkItem {...item} />)}
+            </div>
+          ) : (
+            <span
+              class="flex flex-row gap-2 text-muted"
+            >
+              Nothing to see here yet :(
+            </span>
+          )}
         </ResearchContainer>
       </div>
     </Section>
-    
-    <Section title="Projects and contributions">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {siteContentJson.projects.map(item => <ProjectItem {...item} />)}
-      </div>
-    </Section>
-    
-    <Section title="Work experience">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {siteContentJson.work.map(item => <WorkItem {...item} />)}
-      </div>
-    </Section>
-
     <Footer />
   </main>
 </Layout>

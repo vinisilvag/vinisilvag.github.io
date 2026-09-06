@@ -8,15 +8,30 @@ import "../styles/global.css";
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    <title>Vinicius G.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <title>Vinicius Gomes</title>
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+          return localStorage.getItem("theme");
+        }
+        return "dark";
+      })();
+
+      if (theme === "light") {
+        document.documentElement.classList.add("light");
+        document.documentElement.setAttribute("data-theme", "light");
+      } else {
+        document.documentElement.classList.remove("light");
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    </script>
   </head>
-  <body class="bg-background font-sans">
-    <div class="w-full max-w-screen-lg mx-auto py-12 px-6 lg:px-0"> 
+  <body class="bg-background font-sans min-h-screen min-h-dvh flex flex-col text-text">
+    <div class="w-full max-w-screen-lg mx-auto py-12 px-6 lg:px-0 flex-1 flex flex-col"> 
       <slot />
     </div>
   </body>

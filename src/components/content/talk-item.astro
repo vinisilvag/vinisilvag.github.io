@@ -1,15 +1,32 @@
 ---
 interface Props {
   title: string;
-  authors: string;
-  description: string;
+  event?: string;
+  description?: string;
+  authors?: string | string[];
+  poster?: string | null;
+  pdf?: string | null;
 }
 
-const { title, authors, description } = Astro.props;
+const { title, event, description, authors, poster, pdf } = Astro.props;
+const eventText = event || description;
+const posterLink = poster || pdf;
+const posterLabel = poster ? "[poster]" : "[pdf]";
+const authorsText = Array.isArray(authors) ? authors.join(", ") : authors;
 ---
 
 <div class="flex flex-col w-full">
-  <h3 class="text-white text-md font-semibold">{title}</h3>
-  <span class="text-text text-sm">{authors}</span>
-  <span class="text-text text-sm">{description}</span>
+  <h3 class="text-heading text-md leading-snug font-semibold">{title}</h3>
+  {authorsText && <span class="text-text text-sm" set:html={authorsText} />}
+  {eventText && <span class="text-muted text-sm">{eventText}</span>}
+  {posterLink && (
+    <a
+      href={posterLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-link hover:underline font-mono font-medium w-fit text-sm mt-0.5"
+    >
+      {posterLabel}
+    </a>
+  )}
 </div>

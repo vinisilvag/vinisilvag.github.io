@@ -1,38 +1,92 @@
 ---
 import { Image } from "astro:assets";
 import avatarImage from "@assets/avatar-2.jpg";
-import { Github, Gitlab, Instagram, Linkedin } from "lucide-astro";
+import { Github, Instagram, Linkedin, Mail, Moon, Sun } from "lucide-astro";
 ---
 
-<header class="flex flex-col md:flex-row gap-12 items-center">
-  <Image src={avatarImage} alt="Vinicius G." class="w-60 h-60 rounded-2xl" loading="eager" />
+<header class="flex flex-col md:flex-row gap-12 items-start">
+  <Image src={avatarImage} alt="Vinicius Gomes" class="w-64 h-64 rounded-2xl" loading="eager" />
 
   <div class="flex flex-col gap-6">
-    <h1 class="text-white font-bold text-3xl text-center md:text-left">Hi, I’m Vinicius! 👋</h1>
-    <p class="text-text text-md text-center md:text-left">Technical degree in Computer Science from CEFET-MG and currently an undergraduate student in Computer Science at UFMG. I am interested in areas such as Theoretical Computer Science, Formal Methods, and Satisfiability Modulo Theories (SMT). Currently, I work as a researcher student, implementing support for new theories in the SMT proof checker Carcara. Passionate about Linux and a number one fan of Monster by Naoki Urasawa.</p>
+    <h1 class="text-heading font-bold text-3xl text-center md:text-left">Hi, I'm Vinicius Gomes!</h1>
+    <div class="flex flex-col gap-3">
+      <p class="text-text text-md text-center md:text-left">
+        Computer Scientist and M.Sc. student at Universidade Federal de Minas Gerais (UFMG), advised by <a target="_blank" rel="noopener noreferrer" href="https://hanielbarbosa.com/" class="text-link font-medium hover:underline underline-offset-2 transition-colors">Prof. Haniel Barbosa</a>. My research focuses on Formal Methods, particularly Formal Verification, Automated Reasoning, and Satisfiability Modulo Theories (SMT). I have contributed to the development of some formal reasoning tools, including the Carcara proof checker and the cvc5 SMT solver.
+      </p>
+      <p class="text-text text-md text-center md:text-left">
+        When I'm not doing research, I'm probably talking about Hunter × Hunter or Naoki Urasawa's Monster — peak fiction. I also play some CS2 in my free time.
+      </p>
+    </div>
 
-    <div class="flex flex-row justify-between">
+    <div class="flex flex-col gap-4 md:gap-0 md:flex-row justify-between items-center">
       <div class="flex flex-row gap-4">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/vinisilvag" aria-label="GitHub Icon">
-          <Github class="w-6 h-6 text-text hover:text-white"/>
+        <a href="mailto:vinicius.svgomes@gmail.com" aria-label="Email">
+          <Mail class="w-6 h-6 text-muted hover:text-primary transition-colors"/>
         </a>
-        <a target="_blank" rel="noopener noreferrer" href="https://gitlab.com/vinisilvag" aria-label="GitHub Icon">
-          <Gitlab class="w-6 h-6 text-text hover:text-white"/>
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/vinisilvag" aria-label="GitHub">
+          <Github class="w-6 h-6 text-muted hover:text-primary transition-colors"/>
         </a>
-        <!-- <a target="_blank" rel="noopener noreferrer" href="http://lattes.cnpq.br/9631087254135747" aria-label="Link Icon">
-          <Link class="w-6 h-6 text-text hover:text-white"/>
-        </a> -->
-        <a target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/vinisilvag" aria-label="Instagram Icon">
-          <Linkedin class="w-6 h-6 text-text hover:text-white"/>
+        <a target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/vinisilvag" aria-label="LinkedIn">
+          <Linkedin class="w-6 h-6 text-muted hover:text-primary transition-colors"/>
         </a>
-        <a target="_blank" rel="noopener noreferrer" href="https://instagram.com/vinisilvag" aria-label="LinkedIn Icon">
-          <Instagram class="w-6 h-6 text-text hover:text-white"/>
+        <a target="_blank" rel="noopener noreferrer" href="https://instagram.com/vinisilvag" aria-label="Instagram">
+          <Instagram class="w-6 h-6 text-muted hover:text-primary transition-colors"/>
         </a>
       </div>
 
-      <div class="flex flex-row gap-4">
-        <a target="_blank" rel="noopener noreferrer" href="/cv.pdf" class="text-text hover:text-white uppercase">CV</a>
+      <div class="flex flex-row gap-4 items-center font-mono">
+        <a target="_blank" rel="noopener noreferrer" href="http://lattes.cnpq.br/9631087254135747" class="text-muted hover:text-primary transition-colors font-medium">[Lattes]</a>
+        <a target="_blank" rel="noopener noreferrer" href="/cv.pdf" class="text-muted hover:text-primary transition-colors font-medium">[CV]</a>
+        <button
+          id="theme-toggle"
+          type="button"
+          aria-label="Toggle theme"
+          class="cursor-pointer text-muted hover:text-primary transition-colors p-1"
+        >
+          <Sun id="theme-icon-sun" class="w-5 h-5 hidden" />
+          <Moon id="theme-icon-moon" class="w-5 h-5" />
+        </button>
       </div>
     </div>
   </div>
 </header>
+
+<script>
+  function updateThemeToggle() {
+    const isLight = document.documentElement.classList.contains("light");
+    const sunIcon = document.getElementById("theme-icon-sun");
+    const moonIcon = document.getElementById("theme-icon-moon");
+    const toggle = document.getElementById("theme-toggle");
+
+    if (sunIcon && moonIcon) {
+      if (isLight) {
+        sunIcon.classList.remove("hidden");
+        moonIcon.classList.add("hidden");
+        toggle?.setAttribute("aria-label", "Switch to dark theme (Dracula)");
+      } else {
+        sunIcon.classList.add("hidden");
+        moonIcon.classList.remove("hidden");
+        toggle?.setAttribute("aria-label", "Switch to light theme (Alucard)");
+      }
+    }
+  }
+
+  const toggle = document.getElementById("theme-toggle");
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      const isLight = document.documentElement.classList.contains("light");
+      if (isLight) {
+        document.documentElement.classList.remove("light");
+        document.documentElement.setAttribute("data-theme", "dark");
+        localStorage.setItem("theme", "dark");
+      } else {
+        document.documentElement.classList.add("light");
+        document.documentElement.setAttribute("data-theme", "light");
+        localStorage.setItem("theme", "light");
+      }
+      updateThemeToggle();
+    });
+  }
+
+  updateThemeToggle();
+</script>

@@ -1,0 +1,15 @@
+---
+interface Props {
+  date: string;
+  content: string;
+}
+
+const { date, content } = Astro.props;
+
+const formattedContent = content.replace(/\*(.*?)\*/g, "<em>$1</em>");
+---
+
+<div class="flex flex-row items-baseline gap-3 w-full">
+  <span class="font-mono font-medium text-primary shrink-0">{date}</span>
+  <span class="text-text text-md flex-1" set:html={formattedContent} />
+</div>
