@@ -4,14 +4,17 @@ import avatarImage from "@assets/avatar-2.jpg";
 import { Github, Instagram, Linkedin, Mail, Moon, Sun } from "lucide-astro";
 ---
 
-<header class="flex flex-col md:flex-row gap-12 items-start">
+<header class="flex flex-col md:flex-row gap-12 items-center md:items-start">
+  <!-- TODO: update image -->
   <Image src={avatarImage} alt="Vinicius Gomes" class="w-64 h-64 rounded-2xl" loading="eager" />
 
   <div class="flex flex-col gap-6">
-    <h1 class="text-heading font-bold text-3xl text-center md:text-left">Hi, I'm Vinicius Gomes!</h1>
+    <h1 class="text-heading font-bold text-3xl text-center md:text-left">
+      <span class="block md:inline">Hi,</span> <span>I'm Vinicius Gomes!</span>
+    </h1>
     <div class="flex flex-col gap-3">
       <p class="text-text text-md text-center md:text-left">
-        Computer Scientist and M.Sc. student at Universidade Federal de Minas Gerais (UFMG), advised by <a target="_blank" rel="noopener noreferrer" href="https://hanielbarbosa.com/" class="text-link font-medium hover:underline underline-offset-2 transition-colors">Prof. Haniel Barbosa</a>. My research focuses on Formal Methods, particularly Formal Verification, Automated Reasoning, and Satisfiability Modulo Theories (SMT). I have contributed to the development of some formal reasoning tools, including the Carcara proof checker and the cvc5 SMT solver.
+        Computer Scientist and M.Sc. student at Universidade Federal de Minas Gerais (UFMG), under the supervision of <a target="_blank" rel="noopener noreferrer" href="https://hanielbarbosa.com/" class="text-link font-medium hover:underline underline-offset-2 transition-colors">Prof. Haniel Barbosa</a>. My research focuses on Formal Methods, particularly Formal Verification, Automated Reasoning, and Satisfiability Modulo Theories (SMT). I have contributed to the development of some formal reasoning tools, including the Carcara proof checker and the cvc5 SMT solver.
       </p>
       <p class="text-text text-md text-center md:text-left">
         When I'm not doing research, I'm probably talking about Hunter × Hunter or Naoki Urasawa's Monster — peak fiction. I also play some CS2 in my free time.
@@ -36,6 +39,7 @@ import { Github, Instagram, Linkedin, Mail, Moon, Sun } from "lucide-astro";
 
       <div class="flex flex-row gap-4 items-center font-mono">
         <a target="_blank" rel="noopener noreferrer" href="http://lattes.cnpq.br/9631087254135747" class="text-muted hover:text-primary transition-colors font-medium">[Lattes]</a>
+        <!-- TODO: update CV -->
         <a target="_blank" rel="noopener noreferrer" href="/cv.pdf" class="text-muted hover:text-primary transition-colors font-medium">[CV]</a>
         <button
           id="theme-toggle"
@@ -87,6 +91,19 @@ import { Github, Instagram, Linkedin, Mail, Moon, Sun } from "lucide-astro";
       updateThemeToggle();
     });
   }
+
+  window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", (e) => {
+    if (!localStorage.getItem("theme")) {
+      if (e.matches) {
+        document.documentElement.classList.add("light");
+        document.documentElement.setAttribute("data-theme", "light");
+      } else {
+        document.documentElement.classList.remove("light");
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+      updateThemeToggle();
+    }
+  });
 
   updateThemeToggle();
 </script>

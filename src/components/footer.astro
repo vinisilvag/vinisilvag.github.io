@@ -7,9 +7,10 @@ const { class: className } = Astro.props;
 ---
 
 <footer class:list={["w-full text-center mt-auto", className]}>
-  <span class="text-muted">
-    Copyright © <span id="current-year">{new Date().getFullYear()}</span>. Last updated at Sep 2026.
-  </span>
+  <p class="text-muted">
+    <span class="block md:inline">Copyright © <span id="current-year">{new Date().getFullYear()}</span>.</span>{" "}
+    <span class="block md:inline">Last updated at Sep 2026.</span>
+  </p>
 </footer>
 
 <script>
